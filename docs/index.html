@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 아이의 저금통 — 지원</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --text: #2d3436;
+      --muted: #636e72;
+      --bg: #fff5f7;
+      --card: #fff;
+      --accent: #ff6b8a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #f2f2f7;
+        --muted: #aeaeb2;
+        --bg: #1c1824;
+        --card: #2c2c2e;
+      }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: linear-gradient(160deg, var(--bg), #f0f8ff);
+      margin: 0;
+      padding: 32px 16px 48px;
+    }
+    main { max-width: 640px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+    .emoji { font-size: 3rem; }
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 20px rgba(255, 107, 138, 0.08);
+    }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    ul { padding-left: 1.25rem; }
+    footer { margin-top: 2rem; color: var(--muted); font-size: 0.875rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="emoji">🐷</div>
+    <h1>내 아이의 저금통</h1>
+    <p>아이와 엄마가 함께 쓰는 용돈·할 일·칭찬 관리 앱</p>
+
+    <div class="card">
+      <h2>주요 기능</h2>
+      <ul>
+        <li><strong>나눔 · 용돈 · 저축</strong> — 세 저금통으로 용돈 관리</li>
+        <li><strong>오늘의 할 일</strong> — 포스트잇 보드와 엄마 승인</li>
+        <li><strong>칭찬판 & 돌림판</strong> — 스티커 10개 채우면 보상</li>
+        <li><strong>홈 화면 위젯</strong> — 할 일 확인</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>문의 · 정책</h2>
+      <ul>
+        <li><a href="privacy-policy.html">개인정보 처리방침</a></li>
+        <li>문의: <a href="mailto:spring79y@naver.com">spring79y@naver.com</a></li>
+      </ul>
+    </div>
+
+    <footer>© 2026 YeonaPiggyBank · iPhone & iPad</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Xcode
+.DS_Store
+*.xcuserstate
+xcuserdata/
+DerivedData/
+.derivedData/
+build/
+*.ipa
+*.dSYM.zip
+
+# Cursor
+.cursor/
+
+# macOS
+*.swp
+*~
