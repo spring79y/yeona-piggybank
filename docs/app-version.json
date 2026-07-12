@@ -1,0 +1,11 @@
+{
+  "ios": {
+    "minimumVersion": "1.2",
+    "minimumBuild": 5
+  },
+  "android": {
+    "minimumVersion": "1.1",
+    "minimumBuild": 1,
+    "storeUrl": "https://play.google.com/store/apps/details?id=com.yeona.piggybank"
+  }
+}
