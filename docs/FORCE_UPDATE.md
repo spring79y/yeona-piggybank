@@ -27,12 +27,14 @@ Fallback: `https://raw.githubusercontent.com/spring79y/yeona-piggybank/main/docs
     "minimumBuild": 2
   },
   "android": {
-    "minimumVersion": "1.1.1",
-    "minimumBuild": 3,
+    "minimumVersion": "0.0.0",
+    "minimumBuild": 0,
     "storeUrl": "https://play.google.com/store/apps/details?id=com.yeona.piggybank"
   }
 }
 ```
+
+> Android는 비공개 테스트 중에는 `minimumVersion`/`minimumBuild`를 `0.0.0` / `0`으로 두어 강제 업데이트를 끕니다. 정식 출시 후 강제가 필요하면 출시 버전으로 올립니다.
 
 > 스토어에 새 빌드가 보이기 **전에** JSON만 올리면, 사용자가 스토어로 보내져도 새 버전을 못 받을 수 있습니다. 반드시 **스토어 공개 후** JSON을 푸시하세요.
 
