@@ -1,9 +1,9 @@
-# 강제 업데이트 버전 정책
+# 업데이트 안내 정책 (소프트)
 
-**정책: 모든 출시는 강제 업데이트입니다.**  
-새 버전이 스토어에 공개되면, 아래 JSON의 최소 버전/빌드를 그 버전으로 올려 이전 앱을 막습니다.
+**정책: 앱을 막지 않습니다.**  
+설치된 버전이 권장 버전보다 낮으면 **업데이트 안내**만 띄우고, 사용자는 「나중에」로 닫을 수 있습니다.
 
-앱은 시작 시 JSON을 읽어, 설치된 버전/빌드가 최소 요구보다 낮으면 스토어로만 보냅니다.
+앱은 시작 시 JSON을 읽습니다.
 
 URL: `https://spring79y.github.io/yeona-piggybank/app-version.json`  
 Fallback: `https://raw.githubusercontent.com/spring79y/yeona-piggybank/main/docs/app-version.json`  
@@ -11,40 +11,42 @@ Fallback: `https://raw.githubusercontent.com/spring79y/yeona-piggybank/main/docs
 - `docs/app-version.json` (이 폴더 → GitHub Pages)
 - 저장소 루트 `docs/app-version.json`
 
-## 매 출시 절차 (필수)
+## 필드
 
-1. 앱 버전 올리기 (iOS Marketing/Build, Android versionName/versionCode)
-2. App Store / Play에 새 빌드 업로드·**스토어에 공개될 때까지 대기**
-3. 두 `app-version.json`을 **방금 출시한 버전**으로 맞춤
-   - iOS: `minimumVersion` = Marketing, `minimumBuild` = Build
-   - Android: `minimumVersion` = versionName, `minimumBuild` = versionCode
-4. `main`에 푸시해 GitHub Pages가 갱신되게 함
+| 필드 | 용도 |
+|------|------|
+| `recommendedVersion` / `recommendedBuild` | **업데이트 안내** 기준 (새 앱 빌드) |
+| `minimumVersion` / `minimumBuild` | 예전 강제 업데이트 앱 호환용. **항상 `0.0.0` / `0`으로 유지**해 강제 잠금을 끕니다 |
+
+## 매 출시 절차
+
+1. 새 빌드를 App Store / Play에 **공개**
+2. `recommendedVersion` / `recommendedBuild`를 그 출시 버전으로 올림
+3. `minimumVersion` / `minimumBuild`는 `0.0.0` / `0` 유지
+4. `main`에 푸시
 
 ```json
 {
   "ios": {
-    "minimumVersion": "1.3",
-    "minimumBuild": 1
+    "minimumVersion": "0.0.0",
+    "minimumBuild": 0,
+    "recommendedVersion": "1.3",
+    "recommendedBuild": 1
   },
   "android": {
     "minimumVersion": "0.0.0",
     "minimumBuild": 0,
+    "recommendedVersion": "0.0.0",
+    "recommendedBuild": 0,
     "storeUrl": "https://play.google.com/store/apps/details?id=com.yeona.piggybank"
   }
 }
 ```
 
-> Android는 비공개 테스트 중에는 `minimumVersion`/`minimumBuild`를 `0.0.0` / `0`으로 두어 강제 업데이트를 끕니다. 정식 출시 후 강제가 필요하면 출시 버전으로 올립니다.
+> `recommended`는 스토어에 **실제 공개된 버전 이하**로만 올리세요. 스토어에 없는 버전으로 올리면 안내만 뜨고 업데이트 버튼이 「열기」로만 보입니다.
 
-> 스토어에 새 빌드가 보이기 **전에** JSON만 올리면, 사용자가 스토어로 보내져도 새 버전을 못 받을 수 있습니다. 반드시 **스토어 공개 후** JSON을 푸시하세요.
+## 동작
 
-## 비교 규칙
-
-- 마케팅 버전이 더 낮으면 → 강제
-- 버전이 같고 빌드만 낮으면 → 강제
-- JSON을 못 읽으면(오프라인 등) → 앱을 막지 않음
-
-## 주의
-
-이미 설치된 앱에 **강제 업데이트 코드가 있어야** 동작합니다.  
-강제 업데이트 코드가 없는 아주 오래된 빌드는 JSON을 올려도 막히지 않습니다.
+- 권장 버전보다 낮음 → 「새 버전이 있어요」 안내 (닫기 가능)
+- JSON을 못 읽으면 → 안내하지 않음
+- 「나중에」 → 이번 실행에서는 다시 안 띄움
