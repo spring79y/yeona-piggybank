@@ -28,8 +28,8 @@ Fallback: `https://raw.githubusercontent.com/spring79y/yeona-piggybank/main/docs
 ```json
 {
   "ios": {
-    "minimumVersion": "0.0.0",
-    "minimumBuild": 0,
+    "minimumVersion": "1.3.1",
+    "minimumBuild": 2,
     "recommendedVersion": "1.3.1",
     "recommendedBuild": 2
   },
