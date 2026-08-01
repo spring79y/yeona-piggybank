@@ -8,8 +8,8 @@
   "android": {
     "minimumVersion": "0.0.0",
     "minimumBuild": 0,
-    "recommendedVersion": "0.0.0",
-    "recommendedBuild": 0,
+    "recommendedVersion": "1.1.2",
+    "recommendedBuild": 4,
     "storeUrl": "https://play.google.com/store/apps/details?id=com.yeona.piggybank"
   }
 }
